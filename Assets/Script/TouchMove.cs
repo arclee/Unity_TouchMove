@@ -18,8 +18,8 @@ public class TouchMove : MonoBehaviour {
 		
 		if (dir.magnitude > 0.1f)
 		{
-			rigidbody2D.AddForce(dir.normalized * 10f);
-			//transform.Translate (dir.normalized * 10f * Time.deltaTime);
+			//rigidbody2D.AddForce(dir.normalized * 10f);
+			transform.Translate (dir.normalized * 10f * Time.deltaTime);
 		}
 
 		if (Input.GetMouseButtonDown(0)) {
