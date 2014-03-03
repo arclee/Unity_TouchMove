@@ -1,12 +1,12 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+[RequireComponent (typeof(GUIText))]
 public class ScreenSize : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		GUIText text = gameObject.GetComponent<GUIText>();
-		text.text = Screen.width.ToString() + "  "+ Screen.height.ToString()+ "\n" + Screen.currentResolution.width.ToString() + "  " +Screen.currentResolution.height.ToString() ;
+		guiText.text = Screen.width.ToString() + "  "+ Screen.height.ToString()+ "\n" + Screen.currentResolution.width.ToString() + "  " +Screen.currentResolution.height.ToString() ;
 /*
 		float h, w, Q;
 		float near_plane;

@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class TouchTrailCtrl : MonoBehaviour {
+public class TouchMoveObj : MonoBehaviour {
 
 	public int touchid = 0;
 	
@@ -19,38 +19,7 @@ public class TouchTrailCtrl : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
 	{
-#if UNITY_STANDALONE
-		
-		if (!begintouch && Input.GetMouseButtonDown(touchid))
-		{
-			touchfinish = false;
-			begintouch = true;
-			beginPos = Input.mousePosition;
-			//Debug.Log(beginPos);
-		}
-		else if (begintouch)
-		{
-			//結束.
-			if (Input.GetMouseButtonUp(touchid))
-			{
-				touchfinish = true;
-				begintouch = false;
-				endPos = Input.mousePosition;
 
-
-			}
-			else
-			{
-				//移動.
-				
-				Vector3 mv = Camera.main.ScreenToWorldPoint (new Vector3 (Input.mousePosition.x, Input.mousePosition.y, 10));
-
-				transform.position = mv;
-
-
-			}
-		}
-		#else
 		if (Input.touchCount > 0)
 		{
 			if (!begintouch && (Input.GetTouch (touchid).phase == TouchPhase.Began))
@@ -75,7 +44,7 @@ public class TouchTrailCtrl : MonoBehaviour {
 			}
 			
 		}
-#endif
+
 	}
 
 }
