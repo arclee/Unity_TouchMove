@@ -40,7 +40,7 @@ public class PickUp : MonoBehaviour {
 			Vector3 p = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, 0));
 			
 			RaycastHit hit;
-			Debug.DrawLine(p, new Vector3(p.x, p.y, 100), Color.red);
+			Debug.DrawLine(p, new Vector3(p.x, p.y, 100), Color.red, 2);
 			if (Physics.Raycast(p, -Vector3.forward, out hit, 100.0F))
 			{
 				hit.rigidbody.AddForce(Vector3.up * 1000f);
@@ -52,7 +52,7 @@ public class PickUp : MonoBehaviour {
 
 			RaycastHit2D hit2d = Physics2D.Raycast(p, p);
 			
-			Debug.DrawLine(p, p, Color.blue);
+			//Debug.DrawLine(p, p, Color.blue);
 			//Debug.DrawLine(new Vector3(Input.mousePosition.x, Input.mousePosition.y, 100), new Vector3(Input.mousePosition.x+10, Input.mousePosition.y+10, 100), Color.red);
 			if (hit2d.rigidbody != null)
 			{
