@@ -8,7 +8,8 @@ public class CameraFllowObject : MonoBehaviour {
 	
 
 	// Use this for initialization
-	void Start () {
+	void Start ()
+	{
 		mDeltaPos = transform.position - mFllowObjectTrans.position;
 	}
 	
