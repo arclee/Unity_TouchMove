@@ -90,7 +90,7 @@ public class touchctrl : MonoBehaviour {
 				if (rh.rigidbody != null)
 				{
 					Quaternion.Euler(0, 0, 90.0f);
-					Vector2 dir = new Vector2(rh.rigidbody.transform.position.x, rh.rigidbody.transform.position.y) - rh.point;
+					//Vector2 dir = new Vector2(rh.rigidbody.transform.position.x, rh.rigidbody.transform.position.y) - rh.point;
 					rh.rigidbody.AddForce(Quaternion.Euler(0, 0, 90.0f) * -rh.normal * 1000f );
 				}
 			}
