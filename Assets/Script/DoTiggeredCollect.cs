@@ -14,7 +14,12 @@ public class DoTiggeredCollect : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
 	{
+
+#if UNITY_EDITOR
 		if (Input.GetMouseButtonUp(Touchid))
+#else
+		if (Input.GetTouch (Touchid).phase == TouchPhase.Ended)
+#endif
 		{
 			if (mTiggeredCollect.TiggeredCollects.Count > 0)
 			{
@@ -22,7 +27,7 @@ public class DoTiggeredCollect : MonoBehaviour {
 				{
 					Vector2 f = new Vector2(1000* Random.Range(-1.0f, 1.0f), 1000*Random.Range(-1.0f, 1.0f));
 					c2d.rigidbody2D.AddForce(f);
-					c2d.gameObject.SetActive(false);
+					//c2d.gameObject.SetActive(false);
 				}
 
 			}
