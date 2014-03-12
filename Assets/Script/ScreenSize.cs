@@ -7,6 +7,8 @@ public class ScreenSize : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		guiText.text = Screen.width.ToString() + "  "+ Screen.height.ToString()+ "\n" + Screen.currentResolution.width.ToString() + "  " +Screen.currentResolution.height.ToString() ;
+		guiText.text += "\n";
+		guiText.text += Application.platform.ToString() +"\n";
 /*
 		float h, w, Q;
 		float near_plane;

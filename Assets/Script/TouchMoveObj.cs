@@ -20,7 +20,7 @@ public class TouchMoveObj : MonoBehaviour {
 	void Update ()
 	{
 
-		if (Input.touchCount > 0)
+		if (Input.touchCount > touchid)
 		{
 			if (!begintouch && (Input.GetTouch (touchid).phase == TouchPhase.Began))
 			{

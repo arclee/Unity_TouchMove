@@ -16,36 +16,37 @@ public class MouseMoveObj : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-#if UNITY_EDITOR
-		if (!begintouch && Input.GetMouseButtonDown(touchid))
+		if (Application.platform == RuntimePlatform.WindowsEditor
+		    || Application.platform == RuntimePlatform.WindowsPlayer)
 		{
-			touchfinish = false;
-			begintouch = true;
-			beginPos = Input.mousePosition;
-			//Debug.Log(beginPos);
-		}
-		else if (begintouch)
-		{
-			//結束.
-			if (Input.GetMouseButtonUp(touchid))
+			if (!begintouch && Input.GetMouseButtonDown(touchid))
 			{
-				touchfinish = true;
-				begintouch = false;
-				endPos = Input.mousePosition;
-				
-				
+				touchfinish = false;
+				begintouch = true;
+				beginPos = Input.mousePosition;
+				//Debug.Log(beginPos);
 			}
-			else
+			else if (begintouch)
 			{
-				//移動.
-				
-				Vector3 mv = Camera.main.ScreenToWorldPoint (new Vector3 (Input.mousePosition.x, Input.mousePosition.y, 10));
-				
-				transform.position = mv;
-				
-				
+				//結束.
+				if (Input.GetMouseButtonUp(touchid))
+				{
+					touchfinish = true;
+					begintouch = false;
+					endPos = Input.mousePosition;
+					
+					
+				}
+				else
+				{
+					//移動.
+					
+					Vector3 mv = Camera.main.ScreenToWorldPoint (new Vector3 (Input.mousePosition.x, Input.mousePosition.y, 10));
+					
+					transform.position = mv;	
+					
+				}
 			}
 		}
-#endif
 	}
 }
